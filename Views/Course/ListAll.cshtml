@@ -1,5 +1,68 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿<!--
+    List all on a course, teacher, students and assignments.
+-->
 @{
+    string course = (string)ViewData["Course"];
+    string teacher = (string)ViewData["Teacher"];
+    List<Assignment> items = (List<Assignment>)ViewData["AssignmentList"];
 }
+<div>
+    <div>
+        <h1 class="">Select Course</h1>
+        <form asp-controller="Course" asp-action="ListAll" method="post">
+            <label>
+                Course<br />
+                <select name="courseId">
+                    <partial name="~/Views/PartialViews/_courseSelectPartial.cshtml" />
+                </select>
+            </label>
+            <br />
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+    <hr />
+    <div>
+        <label>
+            Course<br />
+            <input type="text" value="@course" />
+        </label><br />
+        <label>
+            Teacher<br />
+            @teacher
+        </label><br />
+        <div>
+            <label>Students</label><br />
+            <table>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <partial name="~/Views/PartialViews/_personTableListPartial.cshtml" />
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <label>Assignments</label>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Assignment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Assignment item in items)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        
+    </div>
+</div>

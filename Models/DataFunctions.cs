@@ -102,11 +102,18 @@ namespace EntityFramework.Models
 
         public Course GetCourse(int id)
         {
-            IQueryable query =this._context.Courses.Where(m => m.Id == id);
-            return (Course)query;
+            var ret = this._context.Courses.Include(c => c.Assignments).Include(c => c.Students).Where(s => s.Id == id);
+
+            return ret.Single<Course>();
         }
 
         public List<Assignment> GetAssignmentList(int courseId)
+        {
+            IQueryable<Assignment> query = this._context.Assignments.Where(m => m.Course_id == courseId).OrderBy(m => m.Name);
+            return query.ToList<Assignment>();
+        }
+
+        public List<Assignment> GetAssignmentList()
         {
             IQueryable<Assignment> query = this._context.Assignments.OrderBy(m => m.Name);
             return query.ToList<Assignment>();
@@ -114,17 +121,17 @@ namespace EntityFramework.Models
 
         public IPerson GetPerson(int id, string personType)
         {
-            IQueryable query;
+            IPerson ret;
             if (personType == "student")
             {
-                query = this._context.Students.Where(m => m.Id == id);
+                ret = this._context.Students.Find(id);
             }
             else
             {
-                query = this._context.Teachers.Where(m => m.Id == id);
+                ret = this._context.Teachers.Find(id);
             }
 
-            return (IPerson)query;
+            return ret;
         }
     }
 }

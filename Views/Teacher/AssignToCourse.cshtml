@@ -1,11 +1,24 @@
-﻿// Assign Student to Course view.
+﻿<!-- Assign Teacher to Course view.
+-->
 
 @Html.AntiForgeryToken()
 
-<div class="add-student-to-course">
+<div class="add-student-to-course center">
     <h1 class="">Add Student to Course</h1>
-    <form asp-controller="Student" asp-action="AddToCourse" method="post">
-        <select>
-        </select>
+    <form asp-controller="Teacher" asp-action="AssignToCourse" method="post">
+        <label>
+            Teacher<br />
+            <select name="teacherId">
+                <partial name="~/Views/PartialViews/_personSelectPartial.cshtml" />
+            </select>
+        </label><br />
+        <label>
+            Course<br />
+            <select name="courseId">
+                <partial name="~/Views/PartialViews/_courseSelectPartial.cshtml" />
+            </select>
+        </label>
+        <br />
+        <input type="submit" value="Submit" />
     </form>
 </div>

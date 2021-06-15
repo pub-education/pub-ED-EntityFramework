@@ -1,0 +1,9 @@
+﻿@{
+    List<Assignment> items = (List<Assignment>)ViewData["AssignmentList"];
+}
+
+
+@foreach (Assignment item in items)
+{
+    <option value="@item.Id">@item.Name</option>
+}
