@@ -1,0 +1,9 @@
+﻿@{
+    List<Course> tmp = (List<Course>)ViewData["CourseList"];
+}
+
+
+@foreach (Course val in tmp)
+{
+    <option  value="@val.Id">@val.Name</option>
+}

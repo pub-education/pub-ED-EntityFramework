@@ -1,0 +1,22 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@Html.AntiForgeryToken()
+@model EntityFramework.Models.DataFunctions;
+
+<div class="page-wrapper">
+    <h1 class="">@ViewData["PageHead"]</h1>
+    <div class="add-student">
+        <form asp-controller="Student" asp-action="Add" method="post">
+            <!--<partial name="~/Views/PartialViews/_inputPersonPartial.cshtml" />-->
+        </form>
+    </div>
+    <!--<div class="student-records">
+        <h1 class="">Student Records</h1>
+        <select>-->
+    <!--<partial name="~/Views/PartialViews/_listRecordsPartial.cshtml" />-->
+    <!--</select>
+    </div>-->
+</div>

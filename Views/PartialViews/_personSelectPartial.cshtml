@@ -1,0 +1,10 @@
+﻿
+@{
+    List<IPerson> tmp = (List<IPerson>)ViewData["List"];
+}
+
+
+@foreach (IPerson val in tmp)
+{
+    <option value="@val.Id">@val.LName, @val.FName</option>
+}
