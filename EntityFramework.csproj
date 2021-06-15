@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\images\chris.afdesign" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Entity Framework.pdf" />
   </ItemGroup>
 

@@ -10,16 +10,22 @@ namespace EntityFramework.Models
     {
         public EntityFrameworkContext(DbContextOptions<EntityFrameworkContext> options)
             : base(options) { }
-
+        
         public DbSet<Student> Students { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Assignment> Assignments { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+        }
     }
-    public class Student
-    {
+
+    public class Student : IPerson
+    {   
         [Key]
-        public int Student_id { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "Please, enter the first name.")]
         [MaxLength(45)]
@@ -31,10 +37,10 @@ namespace EntityFramework.Models
         public List<Course> Courses { get; set; }
     }
 
-    public class Teacher
+    public class Teacher : IPerson
     {
         [Key]
-        public int Teacher_id { get; set; }
+        public int Id { get; set; }
 
         [MaxLength(45)]
         [Required(ErrorMessage ="Please, enter the first name.")]
@@ -50,9 +56,11 @@ namespace EntityFramework.Models
     public class Course
     {
         [Key]
-        public int Course_id { get; set; }
+        public int Id { get; set; }
         [Required]
         public int Teacher_id { get; set; }
+
+        public int Grade { get; set; }
 
         public List<Student> Students { get; set; }
         public List<Assignment> Assignments { get; set; }
@@ -64,29 +72,24 @@ namespace EntityFramework.Models
     public class Assignment
     {
         [Key]
-        public int Assignment_id { get; set; }
+        public int Id { get; set; }
         [Required]
         public int Course_id { get; set; }
 
         [MaxLength(45)]
         [Required(ErrorMessage ="Please, name the assignment.")]
         public string Name { get; set; }
+
+        public bool Completed { get; set; }
     }
 
-    public class Students
+    /// <summary>
+    /// Interface for People type classes
+    /// </summary>
+    public interface IPerson
     {
-        public List<Student> StudentList { get; set; }
-    }
-    public class Teachers
-    {
-        public List<Teacher> TeacherList { get; set; }
-    }
-    public class Courses
-    {
-        public List<Course> CourseList { get; set; }
-    }
-    public class Assignments
-    {
-        public List<Assignment> AssignmentList { get; set; }
+        public int Id { get; set; }
+        public string FName { get; set; }
+        public string LName { get; set; }
     }
 }

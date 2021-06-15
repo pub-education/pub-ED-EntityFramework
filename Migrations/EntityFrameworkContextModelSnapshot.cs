@@ -21,30 +21,33 @@ namespace EntityFramework.Migrations
 
             modelBuilder.Entity("CourseStudent", b =>
                 {
-                    b.Property<int>("CoursesCourse_id")
+                    b.Property<int>("CoursesId")
                         .HasColumnType("int");
 
-                    b.Property<int>("StudentsStudent_id")
+                    b.Property<int>("StudentsId")
                         .HasColumnType("int");
 
-                    b.HasKey("CoursesCourse_id", "StudentsStudent_id");
+                    b.HasKey("CoursesId", "StudentsId");
 
-                    b.HasIndex("StudentsStudent_id");
+                    b.HasIndex("StudentsId");
 
                     b.ToTable("CourseStudent");
                 });
 
             modelBuilder.Entity("EntityFramework.Models.Assignment", b =>
                 {
-                    b.Property<int>("Assignment_id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Course_id")
+                    b.Property<bool>("Completed")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("CourseId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Course_id1")
+                    b.Property<int>("Course_id")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -52,41 +55,44 @@ namespace EntityFramework.Migrations
                         .HasMaxLength(45)
                         .HasColumnType("nvarchar(45)");
 
-                    b.HasKey("Assignment_id");
+                    b.HasKey("Id");
 
-                    b.HasIndex("Course_id1");
+                    b.HasIndex("CourseId");
 
                     b.ToTable("Assignments");
                 });
 
             modelBuilder.Entity("EntityFramework.Models.Course", b =>
                 {
-                    b.Property<int>("Course_id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Grade")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(45)
                         .HasColumnType("nvarchar(45)");
 
+                    b.Property<int?>("TeacherId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Teacher_id")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Teacher_id1")
-                        .HasColumnType("int");
+                    b.HasKey("Id");
 
-                    b.HasKey("Course_id");
-
-                    b.HasIndex("Teacher_id1");
+                    b.HasIndex("TeacherId");
 
                     b.ToTable("Courses");
                 });
 
             modelBuilder.Entity("EntityFramework.Models.Student", b =>
                 {
-                    b.Property<int>("Student_id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -101,14 +107,14 @@ namespace EntityFramework.Migrations
                         .HasMaxLength(45)
                         .HasColumnType("nvarchar(45)");
 
-                    b.HasKey("Student_id");
+                    b.HasKey("Id");
 
                     b.ToTable("Students");
                 });
 
             modelBuilder.Entity("EntityFramework.Models.Teacher", b =>
                 {
-                    b.Property<int>("Teacher_id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -123,7 +129,7 @@ namespace EntityFramework.Migrations
                         .HasMaxLength(45)
                         .HasColumnType("nvarchar(45)");
 
-                    b.HasKey("Teacher_id");
+                    b.HasKey("Id");
 
                     b.ToTable("Teachers");
                 });
@@ -132,13 +138,13 @@ namespace EntityFramework.Migrations
                 {
                     b.HasOne("EntityFramework.Models.Course", null)
                         .WithMany()
-                        .HasForeignKey("CoursesCourse_id")
+                        .HasForeignKey("CoursesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("EntityFramework.Models.Student", null)
                         .WithMany()
-                        .HasForeignKey("StudentsStudent_id")
+                        .HasForeignKey("StudentsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -147,14 +153,14 @@ namespace EntityFramework.Migrations
                 {
                     b.HasOne("EntityFramework.Models.Course", null)
                         .WithMany("Assignments")
-                        .HasForeignKey("Course_id1");
+                        .HasForeignKey("CourseId");
                 });
 
             modelBuilder.Entity("EntityFramework.Models.Course", b =>
                 {
                     b.HasOne("EntityFramework.Models.Teacher", null)
                         .WithMany("Courses")
-                        .HasForeignKey("Teacher_id1");
+                        .HasForeignKey("TeacherId");
                 });
 
             modelBuilder.Entity("EntityFramework.Models.Course", b =>

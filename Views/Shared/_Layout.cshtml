@@ -4,25 +4,58 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - EntityFramework</title>
+    <link type="image/icon" rel="icon" href="~/images/cj-icon_512x512.png" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">EntityFramework</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Student" asp-action="Index"><img src="/images/HardKnoxCollege.png" type="image/svg" style="height:70px;" alt="Hard Knox College" /></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        <li class="nav-item text-dark">
+                            <a class="nav-link active" aria-current="page" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <li class="nav-item dropdown">
+                            <a id="student-navbar-link" class="nav-link dropdown-toggle text-dark"   role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" asp-area="" asp-controller="Student" asp-action="Index">Students</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" asp-area="" asp-controller="Student" asp-action="Add">Add Student</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Student" asp-action="AssignToCourse">Add Student to Course</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Student" asp-action="ListAll">List All Students</a>
+                                <!--<a class="dropdown-item" asp-area="" asp-controller="Student" asp-action="ListCourses">List Student Courses</a>
+    <a class="dropdown-item" asp-area="" asp-controller="Student" asp-action="Edit">Edit Student</a>
+    <a class="dropdown-item" asp-area="" asp-controller="Student" asp-action="Delete">Delete Student</a>
+        -->
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a id="teacher-navbar-link" class="nav-link dropdown-toggle text-dark" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" asp-area="" asp-controller="Teacher" asp-action="Index">Teachers</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" asp-area="" asp-controller="Teacher" asp-action="Add">Add Teacher</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Teacher" asp-action="AssignToCourse">Add Teacher to Course</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Teacher" asp-action="ListAll">List All Teachers</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a id="course-navbar-link" class="nav-link dropdown-toggle text-dark" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" asp-area="" asp-controller="Course" asp-action="Index">Courses &amp; Assignments</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" asp-area="" asp-controller="Course" asp-action="AddCourse">Add Course</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Course" asp-action="AddAssignment">Add Assignment</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Course" asp-action="AssignToCourse">Add Assignment To Course</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Course" asp-action="ListAll">List All on Course</a>
+                                <!--<a class="dropdown-item" asp-area="" asp-controller="Course" asp-action="Delete">Remove Course</a>
+        -->
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -36,8 +69,8 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - EntityFramework - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="container text-center">
+            Copyright &copy; 2021 - Chris Johannesson
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

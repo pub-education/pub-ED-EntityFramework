@@ -76,3 +76,17 @@ F:\Education\Lexicon\Programmering .NET\04 Databases\Entity Framework\code\Entit
 F:\Education\Lexicon\Programmering .NET\04 Databases\Entity Framework\code\EntityFramework\obj\Debug\net5.0\EntityFramework.genruntimeconfig.cache
 F:\Education\Lexicon\Programmering .NET\04 Databases\Entity Framework\code\EntityFramework\bin\Debug\net5.0\Humanizer.dll
 F:\Education\Lexicon\Programmering .NET\04 Databases\Entity Framework\code\EntityFramework\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+F:\Education\Lexicon\Programmering .NET\04 Databases\Entity Framework\code\EntityFramework\obj\Debug\net5.0\Razor\Views\PartialViews\_inputPersonPartial.cshtml.g.cs
+F:\Education\Lexicon\Programmering .NET\04 Databases\Entity Framework\code\EntityFramework\obj\Debug\net5.0\Razor\Views\Student\Add.cshtml.g.cs
+F:\Education\Lexicon\Programmering .NET\04 Databases\Entity Framework\code\EntityFramework\obj\Debug\net5.0\Razor\Views\Student\ListAll.cshtml.g.cs
+F:\Education\Lexicon\Programmering .NET\04 Databases\Entity Framework\code\EntityFramework\obj\Debug\net5.0\Razor\Views\Course\AddAssignment.cshtml.g.cs
+F:\Education\Lexicon\Programmering .NET\04 Databases\Entity Framework\code\EntityFramework\obj\Debug\net5.0\Razor\Views\Course\AddCourse.cshtml.g.cs
+F:\Education\Lexicon\Programmering .NET\04 Databases\Entity Framework\code\EntityFramework\obj\Debug\net5.0\Razor\Views\Course\AssignToCourse.cshtml.g.cs
+F:\Education\Lexicon\Programmering .NET\04 Databases\Entity Framework\code\EntityFramework\obj\Debug\net5.0\Razor\Views\Course\ListAll.cshtml.g.cs
+F:\Education\Lexicon\Programmering .NET\04 Databases\Entity Framework\code\EntityFramework\obj\Debug\net5.0\Razor\Views\Student\AssignToCourse.cshtml.g.cs
+F:\Education\Lexicon\Programmering .NET\04 Databases\Entity Framework\code\EntityFramework\obj\Debug\net5.0\Razor\Views\Teacher\Add.cshtml.g.cs
+F:\Education\Lexicon\Programmering .NET\04 Databases\Entity Framework\code\EntityFramework\obj\Debug\net5.0\Razor\Views\Teacher\AssignToCourse.cshtml.g.cs
+F:\Education\Lexicon\Programmering .NET\04 Databases\Entity Framework\code\EntityFramework\obj\Debug\net5.0\Razor\Views\Teacher\ListAll.cshtml.g.cs
+F:\Education\Lexicon\Programmering .NET\04 Databases\Entity Framework\code\EntityFramework\obj\Debug\net5.0\Razor\Views\Student\Index.cshtml.g.cs
+F:\Education\Lexicon\Programmering .NET\04 Databases\Entity Framework\code\EntityFramework\obj\Debug\net5.0\Razor\Views\PartialViews\_courseSelectPartial.cshtml.g.cs
+F:\Education\Lexicon\Programmering .NET\04 Databases\Entity Framework\code\EntityFramework\obj\Debug\net5.0\Razor\Views\PartialViews\_personSelectPartial.cshtml.g.cs
