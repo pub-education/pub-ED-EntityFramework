@@ -11,10 +11,18 @@
             <partial name="~/Views/PartialViews/_inputPersonPartial.cshtml" />
         </form>
     </div>
-    <!--<div class="student-records">
+    <div class="student-records">
         <h1 class="">Student Records</h1>
-        <select>-->
-            <!--<partial name="~/Views/PartialViews/_listRecordsPartial.cshtml" />-->
-        <!--</select>
-    </div>-->
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <partial name="~/Views/PartialViews/_personTableListPartial.cshtml" />
+            </tbody>
+        </table>
+    </div>
 </div>

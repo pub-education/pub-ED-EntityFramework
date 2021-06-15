@@ -24,6 +24,10 @@ namespace EntityFramework.Models
 
     public class Student : IPerson
     {   
+        public Student()
+        {
+            Courses = new List<Course>();
+        }
         [Key]
         public int Id { get; set; }
 
@@ -39,6 +43,10 @@ namespace EntityFramework.Models
 
     public class Teacher : IPerson
     {
+        public Teacher()
+        {
+            Courses = new List<Course>();
+        }
         [Key]
         public int Id { get; set; }
 
@@ -55,6 +63,12 @@ namespace EntityFramework.Models
 
     public class Course
     {
+        public Course()
+        {
+            Students = new List<Student>();
+            Assignments = new List<Assignment>();
+        }
+
         [Key]
         public int Id { get; set; }
         [Required]

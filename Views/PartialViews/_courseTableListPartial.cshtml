@@ -1,0 +1,13 @@
+﻿<!--
+    List Courses in a table    
+-->
+@{
+    List<Course> items = (List<Course>)ViewData["CourseList"];
+}
+
+@foreach(Course item in items)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                </tr>
+            }

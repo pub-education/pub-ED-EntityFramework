@@ -1,12 +1,15 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
 }
 
 <div class="student-records">
-    <h1 class="">Student Records</h1>
-    <select>
-        <partial name="~/Views/PartialViews/_listRecordsPartial.cshtml" />
-        </select>
+    <h1 class="">Students</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+        </thead>
+        <partial name="~/Views/PartialViews/_personTableListPartial.cshtml" />
+    </table>
         </div>

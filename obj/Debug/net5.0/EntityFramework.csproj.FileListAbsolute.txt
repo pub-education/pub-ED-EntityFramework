@@ -90,3 +90,5 @@ F:\Education\Lexicon\Programmering .NET\04 Databases\Entity Framework\code\Entit
 F:\Education\Lexicon\Programmering .NET\04 Databases\Entity Framework\code\EntityFramework\obj\Debug\net5.0\Razor\Views\Student\Index.cshtml.g.cs
 F:\Education\Lexicon\Programmering .NET\04 Databases\Entity Framework\code\EntityFramework\obj\Debug\net5.0\Razor\Views\PartialViews\_courseSelectPartial.cshtml.g.cs
 F:\Education\Lexicon\Programmering .NET\04 Databases\Entity Framework\code\EntityFramework\obj\Debug\net5.0\Razor\Views\PartialViews\_personSelectPartial.cshtml.g.cs
+F:\Education\Lexicon\Programmering .NET\04 Databases\Entity Framework\code\EntityFramework\obj\Debug\net5.0\Razor\Views\PartialViews\_personTableListPartial.cshtml.g.cs
+F:\Education\Lexicon\Programmering .NET\04 Databases\Entity Framework\code\EntityFramework\obj\Debug\net5.0\Razor\Views\PartialViews\_courseTableListPartial.cshtml.g.cs

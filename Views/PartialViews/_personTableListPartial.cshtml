@@ -1,0 +1,13 @@
+﻿@{ 
+    List<IPerson> tmp = (List<IPerson>)ViewData["PersonList"];
+}
+<tbody>
+    @foreach(IPerson val in tmp)
+            {
+                <tr>
+                    <td>@val.FName</td>
+                    <td>@val.LName</td>
+                </tr>
+            }
+
+</tbody>

@@ -63,6 +63,7 @@ namespace EntityFramework.Controllers
         public ActionResult Add()
         {
             SetTempData();
+            ViewData["PersonList"] = this._dataHandler.GetPersonList("student");
 
             return View();
         }
@@ -72,13 +73,13 @@ namespace EntityFramework.Controllers
         /// </summary>
         /// <param name="collection">Input from form</param>
         /// <returns>View Index/Default or error view.</returns>
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult AssignToCourse(IFormCollection collection)
+        [HttpGet]
+        public ActionResult AssignToCourse()
         {
             try
             {
-                ViewData["StudentList"] = this._dataHandler.GetPersonList("student");
+                ViewData["PersonList"] = this._dataHandler.GetPersonList("student");
+                ViewData["CourseList"] = this._dataHandler.GetCourseList();
                 //Edit DataFunctions.
                 //ViewData["CourseList"] = this._dataHandler.GetPersonList("student");
 
@@ -89,12 +90,31 @@ namespace EntityFramework.Controllers
                 return View("Error"); ;
             }
         }
-        [HttpGet]
-        public ActionResult AssignToCourse()
+
+        /// <summary>
+        /// Adds a Student to a course
+        /// </summary>
+        /// <param name="collection">Input from form</param>
+        /// <returns>View Index/Default or error view.</returns>
+        [HttpPost]
+        public ActionResult AssignToCourse(IFormCollection collection)
         {
-            SetTempData();
-            return View();
+            try
+            {
+                int personId = Convert.ToInt32(collection["studentId"]);
+                int courseId = Convert.ToInt32(collection["courseId"]);
+                this._dataHandler.AddItemToCourse(personId, "student", courseId);
+                ViewData["PersonList"] = this._dataHandler.GetPersonList("student");
+                ViewData["CourseList"] = this._dataHandler.GetCourseList();
+
+                return View();
+            }
+            catch (Exception ex)
+            {
+                return View("Error"); ;
+            }
         }
+
 
 
         [HttpGet]
@@ -102,7 +122,7 @@ namespace EntityFramework.Controllers
         {
             try
             {
-                ViewData["List"] = this._dataHandler.GetPersonList("student");
+                ViewData["PersonList"] = this._dataHandler.GetPersonList("student");
 
                 return View();
             }

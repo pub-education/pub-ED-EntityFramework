@@ -18,8 +18,8 @@ namespace EntityFramework.Controllers
         }
         private void SetTempData()
         {
-            ViewData["Title"] = "Course &amp; Assignments Page";
-            ViewData["PageHead"] = "Course &amp; Assignments";
+            ViewData["Title"] = "Course & Assignments Page";
+            ViewData["PageHead"] = "Course & Assignments";
             ViewData["Student"] = false;
             ViewData["Teacher"] = false;
             ViewData["Course"] = true;
@@ -40,6 +40,23 @@ namespace EntityFramework.Controllers
             {
                 SetTempData();
                 this._dataHandler.AddCourse(collection["name"]);
+                ViewData["CourseList"] = this._dataHandler.GetCourseList();
+
+                return View();
+            }
+            catch (Exception ex)
+            {
+                return View("Error"); ;
+            }
+        }
+
+        [HttpGet]
+        public ActionResult AddCourse()
+        {
+            try
+            {
+                SetTempData();
+                ViewData["CourseList"] = this._dataHandler.GetCourseList();
 
                 return View();
             }
